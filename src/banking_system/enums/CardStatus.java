@@ -1,4 +1,4 @@
-package banking_system.enums.card_status;
+package banking_system.enums;
 
 public enum CardStatus {
     ACTIVE,

@@ -1,4 +1,4 @@
-package banking_system.enums.card_type;
+package banking_system.enums;
 
 public enum CardType {
     VISA,

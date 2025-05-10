@@ -1,6 +1,8 @@
-package simple_banking_system;
+package card;
 
-import java.time.YearMonth;
+import card_status.CardStatus;
+import card_type.CardType;
+import currency.Currency;
 
 import java.time.YearMonth;
 

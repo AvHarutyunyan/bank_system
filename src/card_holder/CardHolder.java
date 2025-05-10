@@ -1,11 +1,13 @@
-package simple_banking_system;
+package card_holder;
+
+import address.Address;
 
 public class CardHolder {
     Address address;
     private int holderId;
     public String fullName;
 
-    CardHolder(int holderId , String fullName , Address address){
+    public CardHolder(int holderId, String fullName, Address address){
         this.address = address;
         this.holderId = holderId;
         this.fullName = fullName;

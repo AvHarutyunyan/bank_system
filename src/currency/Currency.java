@@ -1,4 +1,4 @@
-package simple_banking_system;
+package currency;
 
 public enum Currency {
     AMD,USD,RUB

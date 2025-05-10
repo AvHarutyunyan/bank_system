@@ -1,4 +1,4 @@
-package simple_banking_system;
+package address;
 
 public class Address {
     public String country;
@@ -7,7 +7,7 @@ public class Address {
     public String street;
     public int house;
 
-    Address(String country , String region, String city , String street , int house){
+    public Address(String country, String region, String city, String street, int house){
         this.country = country;
         this.region = region;
         this.city = city;

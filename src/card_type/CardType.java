@@ -1,4 +1,4 @@
-package simple_banking_system;
+package card_type;
 
 public enum CardType {
     VISA,

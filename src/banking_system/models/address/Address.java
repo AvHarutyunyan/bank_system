@@ -1,4 +1,4 @@
-package address;
+package banking_system.models.address;
 
 public class Address {
     public String country;

@@ -1,6 +1,6 @@
-package bank_account;
+package banking_system.models.bank_account;
 
-import card.Card;
+import banking_system.models.card.Card;
 
 import java.util.List;
 

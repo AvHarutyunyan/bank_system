@@ -1,6 +1,6 @@
-package card_holder;
+package banking_system.models.card_holder;
 
-import address.Address;
+import banking_system.models.address.Address;
 
 public class CardHolder {
     Address address;

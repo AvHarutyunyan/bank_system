@@ -1,8 +1,8 @@
-package card;
+package banking_system.models.card;
 
-import card_status.CardStatus;
-import card_type.CardType;
-import currency.Currency;
+import banking_system.enums.card_status.CardStatus;
+import banking_system.enums.card_type.CardType;
+import banking_system.enums.card_currency.Currency;
 
 import java.time.YearMonth;
 
@@ -103,7 +103,7 @@ public class Card {
                 ", status= " + status +
                 ", cardBalance= " + cardBalance +
                 ", cardHolderId= " + cardHolderId +
-                ", currency= " + currency +
+                ", banking_system.models.currency= " + currency +
                 '}';
     }
 

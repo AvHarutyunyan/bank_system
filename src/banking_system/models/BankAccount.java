@@ -43,8 +43,8 @@ public class BankAccount {
     @Override
     public String toString() {
         return
-                "balance = " + balance + "\n"+
-                        " Number = " +  number + "\n" +
-                        " currency  = " + currency + "\n" ;
+                " balance = " + balance + "\n" +
+                        " Number = " + number + "\n" +
+                        " currency  = " + currency + "\n";
     }
 }

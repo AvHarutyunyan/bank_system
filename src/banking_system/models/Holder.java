@@ -8,8 +8,9 @@ public class Holder {
     private String fullName;
     private List<Card> cards;
     private BankAccount bankAccount;
+    private CardTransaction cardTransaction;
 
-    public Holder(Address address, int holderId, String fullName , List<Card> cards , BankAccount bankAccount) {
+    public Holder(Address address, int holderId, String fullName , List<Card> cards , BankAccount bankAccount  ) {
         this.address = address;
         this.holderId = holderId;
         this.fullName = fullName;
@@ -56,6 +57,13 @@ public class Holder {
     public void setBankAccount(BankAccount bankAccount) {
         this.bankAccount = bankAccount;
     }
+    public CardTransaction getCardTransaction() {
+        return cardTransaction;
+    }
+
+    public void setCardTransaction(CardTransaction cardTransaction) {
+        this.cardTransaction = cardTransaction;
+    }
 
     @Override
     public String toString() {
@@ -64,6 +72,6 @@ public class Holder {
                 " holderid = " + holderId + "\n" +
                 " fullName = " + fullName + "\n" +
                 " Cards = " + cards + "\n" +
-                "Bank Account " + bankAccount;
+                "Bank Account " + bankAccount ;
     }
 }

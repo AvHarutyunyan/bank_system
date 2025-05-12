@@ -4,6 +4,7 @@ import banking_system.enums.CardStatus;
 import banking_system.exceptions.InsufficientFoundsException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CardTransaction {
     private BankAccount bankAccount;
@@ -61,13 +62,15 @@ public class CardTransaction {
             throw new IllegalArgumentException("Transfer failed");
         }
         bankAccount.setBalance((bankAccount.getBalance() + card2.getBalance()));
+        bankAccount.setBalance(card1.setBalance(0));
 
     }
 
-    public void cardLimit(int cardCount) {
-        if (cardCount > 3) {
+    public String cardLimit(List<Card> cards) {
+        if (cards.size() > 3) {
             throw new RuntimeException("Card limit exceeded");
         }
+        return "You have " + cards.size() + " Cards";
     }
 
 

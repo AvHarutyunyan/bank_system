@@ -5,7 +5,6 @@ import banking_system.enums.CardType;
 import banking_system.enums.Currency;
 
 import java.time.LocalDate;
-import java.time.YearMonth;
 import java.util.List;
 
 public class Card {
@@ -81,8 +80,9 @@ public class Card {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public double setBalance(int balance) {
         this.balance = balance;
+        return 0;
     }
 
     public Currency getCurrency() {

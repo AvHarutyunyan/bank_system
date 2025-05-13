@@ -1,21 +1,32 @@
 package banking_system.models;
 
+import banking_system.operations.CardTransaction;
+
 import java.util.List;
 
 public class Holder {
+    private int passportNumber;
     private Address address;
     private int holderId;
     private String fullName;
-    private List<Card> cards;
+    private List<CardAccount> cards;
     private BankAccount bankAccount;
     private CardTransaction cardTransaction;
 
-    public Holder(Address address, int holderId, String fullName , List<Card> cards , BankAccount bankAccount  ) {
+    public Holder(Address address, int holderId, String fullName , int passportNumber , List<CardAccount> cards , BankAccount bankAccount  ) {
         this.address = address;
         this.holderId = holderId;
         this.fullName = fullName;
         this.cards = cards;
         this.bankAccount = bankAccount;
+        this.passportNumber = passportNumber;
+    }
+    public int getPassportNumber() {
+        return passportNumber;
+    }
+
+    public void setPassportNumber(int passportNumber) {
+        this.passportNumber = passportNumber;
     }
 
     public Address getAddress() {
@@ -42,11 +53,11 @@ public class Holder {
         this.fullName = fullName;
     }
 
-    public List<Card> getCards() {
+    public List<CardAccount> getCards() {
         return cards;
     }
 
-    public void setCards(List<Card> cards) {
+    public void setCards(List<CardAccount> cards) {
         this.cards = cards;
     }
 
@@ -69,9 +80,9 @@ public class Holder {
     public String toString() {
         return
                  address + "\n"+
-                " holderid = " + holderId + "\n" +
-                " fullName = " + fullName + "\n" +
-                " Cards = " + cards + "\n" +
-                "Bank Account " + bankAccount ;
+                " holderid = " + holderId + "\t" +
+                ",fullName = " + fullName + "\t" +
+                ",passport Number = " + passportNumber + "\t" +
+                 bankAccount ;
     }
 }

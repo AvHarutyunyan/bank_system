@@ -4,7 +4,7 @@ import banking_system.enums.Currency;
 
 import java.util.List;
 
-public class BankAccount {
+public class BankAccount  {
     private double balance;
     private String number;
     private Currency currency;

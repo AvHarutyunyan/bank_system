@@ -7,22 +7,17 @@ import banking_system.models.CardAccount;
 import banking_system.exceptions.InsufficientFoundsException;
 
 public class BankAccountTransaction {
-    private BankAccount bankAccount;
 
-    public BankAccountTransaction(BankAccount bankAccount) {
-        this.bankAccount = bankAccount;
-    }
-
-    public void deposit(double amount) {
+    public void deposit(double amount , BankAccount bankAccount) {
         if (amount <= 0) {
             throw  new  InsufficientFoundsException("Deposit amount must be positive.");
         }
         double newBalance = bankAccount.getBalance() + amount;
         bankAccount.setBalance(newBalance);
-        System.out.println("Deposited: " + amount);
+        System.out.println("Deposited: " + amount + " BankAccount Balance " + bankAccount.getBalance());
     }
 
-    public void withdraw(double amount) {
+    public void withdraw(double amount , BankAccount bankAccount) {
         if (amount <= 0) {
             throw  new InsufficientFoundsException("Withdraw amount must be positive.");
         }
@@ -31,10 +26,10 @@ public class BankAccountTransaction {
         }
         double newBalance = bankAccount.getBalance() - amount;
         bankAccount.setBalance(newBalance);
-        System.out.println("Withdrawn: " + amount);
+        System.out.println("Withdrawn: " + amount + " BankAccount Balance " + bankAccount.getBalance());
     }
 
-    public void transfer(double amount, BankAccount toAccount) {
+    public void transfer(double amount, BankAccount bankAccount ,  BankAccount toAccount) {
         if (amount <= 0) {
            throw new InsufficientFoundsException("Transfer amount must be positive.");
         }
@@ -45,15 +40,9 @@ public class BankAccountTransaction {
           throw new RuntimeException("Currency mismatch. Cannot transfer.");
         }
 
-        withdraw(amount);
-
         double toNewBalance = toAccount.getBalance() + amount;
         toAccount.setBalance(toNewBalance);
 
-        System.out.println("Transferred: " + amount + " to " + toAccount.getNumber());
-    }
-
-    public double getBankAccountBalance() {
-        return bankAccount.getBalance();
+        System.out.println("Transferred: " + amount + " to " + toAccount.getNumber() + " BankAccount Balance " + toAccount.getBalance());
     }
 }

@@ -81,11 +81,11 @@ public class Main {
         BankAccount acc1 = new BankAccount(1000, "ACC123", Currency.USD);
         BankAccount acc2 = new BankAccount(500, "ACC456", Currency.USD);
 
-        BankAccountTransaction transaction = new BankAccountTransaction(acc1);
+        BankAccountTransaction transaction = new BankAccountTransaction();
 
-        transaction.deposit(440);
-        transaction.withdraw(100);
-        transaction.transfer(300, acc2);
+        transaction.deposit(440 , acc1);
+        transaction.withdraw(100 , acc1);
+        transaction.transfer(300, acc2 , acc1);
 
         System.out.println("acc1:\n" + acc1);
         System.out.println("acc2:\n" + acc2);

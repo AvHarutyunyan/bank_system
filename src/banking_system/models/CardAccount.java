@@ -15,15 +15,6 @@ import java.util.List;
         private CardStatus status;
         private int balance;
         private Currency currency;
-
-        public List<banking_system.models.CardAccount> getCards() {
-            return cards;
-        }
-
-        public void setCards(List<banking_system.models.CardAccount> cards) {
-            this.cards = cards;
-        }
-
         private List<banking_system.models.CardAccount> cards;
 
         public CardAccount(String number, String cvv, LocalDate expirationDate, CardType type, CardStatus status, int balance, Currency currency) {
@@ -36,6 +27,13 @@ import java.util.List;
             this.currency = currency;
         }
 
+        public List<banking_system.models.CardAccount> getCards() {
+            return cards;
+        }
+
+        public void setCards(List<banking_system.models.CardAccount> cards) {
+            this.cards = cards;
+        }
         public String getNumber() {
             return number;
         }

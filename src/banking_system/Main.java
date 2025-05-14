@@ -70,11 +70,11 @@ public class Main {
         System.out.println(cardHolder1);
         CardTransaction cardTransaction = new CardTransaction();
 
-        cardTransaction.deposit(card1, bankAccount1, 4500);
+        cardTransaction.deposit(card1,4500);
 
-        cardTransaction.withDraw(card1, bankAccount1, 4000);
+        cardTransaction.withDraw(card1,4000);
 
-        cardTransaction.transfer(bankAccount1, card1, bankAccount2, card2, 450);
+        cardTransaction.transfer( card1,  card2, 450);
 
         System.out.println(cardTransaction.cardLimit(cards));
 

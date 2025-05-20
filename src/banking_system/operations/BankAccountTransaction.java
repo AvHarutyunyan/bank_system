@@ -6,8 +6,8 @@ import banking_system.models.BankAccount;
 import banking_system.models.CardAccount;
 import banking_system.exceptions.InsufficientFoundsException;
 
-public class BankAccountTransaction {
-
+public class BankAccountTransaction extends Transaction {
+    @Override
     public void deposit(double amount , BankAccount bankAccount) {
         if (amount <= 0) {
             throw  new  InsufficientFoundsException("Deposit amount must be positive.");
@@ -16,7 +16,7 @@ public class BankAccountTransaction {
         bankAccount.setBalance(newBalance);
         System.out.println("Deposited: " + amount + " BankAccount Balance " + bankAccount.getBalance());
     }
-
+    @Override
     public void withdraw(double amount , BankAccount bankAccount) {
         if (amount <= 0) {
             throw  new InsufficientFoundsException("Withdraw amount must be positive.");
@@ -28,7 +28,7 @@ public class BankAccountTransaction {
         bankAccount.setBalance(newBalance);
         System.out.println("Withdrawn: " + amount + " BankAccount Balance " + bankAccount.getBalance());
     }
-
+    @Override
     public void transfer(double amount, BankAccount bankAccount ,  BankAccount toAccount) {
         if (amount <= 0) {
            throw new InsufficientFoundsException("Transfer amount must be positive.");

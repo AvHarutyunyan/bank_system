@@ -7,8 +7,8 @@ import banking_system.models.CardAccount;
 
 import java.util.List;
 
-public class CardTransaction  {
-
+public class CardTransaction extends Transaction  {
+    @Override
     public void deposit(CardAccount card, int amount) {
         if (card.getStatus() == CardStatus.CLOSED || card.getStatus() == CardStatus.BLOCKED || amount < 0) {
             throw new InsufficientFoundsException("Deposit failed");
@@ -19,7 +19,7 @@ public class CardTransaction  {
                 + ". New balance: " + card.getBalance() + "\n");
     }
 
-
+    @Override
     public void withDraw(CardAccount card, int takeMoney) {
         if (takeMoney > card.getBalance() || card.getStatus() == CardStatus.CLOSED || card.getStatus() == CardStatus.BLOCKED) {
             throw new IllegalArgumentException("WithDraw failed");
@@ -27,7 +27,7 @@ public class CardTransaction  {
         card.setBalance(card.getBalance() - takeMoney);
         System.out.println("WithDrawed: " + takeMoney + " in card " + card.getNumber() + ". New balance: " + card.getBalance() + "\n");
     }
-
+    @Override
     public void transfer( CardAccount senderCard, CardAccount receiverCard, int amount) {
         if (senderCard.getStatus() == CardStatus.CLOSED || senderCard.getStatus() == CardStatus.BLOCKED) {
             throw new IllegalArgumentException("Sender card is not active.");
@@ -41,7 +41,7 @@ public class CardTransaction  {
         receiverCard.setBalance(receiverCard.getBalance() + amount);
 
         System.out.println("Transferred: " + amount +
-                " from card " + senderCard.getBalance() +
+                " from card " + senderCard.getBalance()  +
                 " to card " + receiverCard.getBalance());
     }
 

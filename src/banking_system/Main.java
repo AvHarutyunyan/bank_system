@@ -1,5 +1,6 @@
 package banking_system;
 
+import banking_system.enums.BankAccountType;
 import banking_system.models.*;
 import banking_system.enums.CardStatus;
 import banking_system.enums.CardType;
@@ -62,33 +63,34 @@ public class Main {
             System.out.println(card);
         }
 
-        BankAccount bankAccount1 = new BankAccount(4000, card1.getNumber(), card1.getCurrency());
-        BankAccount bankAccount2 = new BankAccount(3435, card2.getNumber(), card2.getCurrency());
+        BankAccount bankAccount1 = new BankAccount(4000, card1.getNumber(), card1.getCurrency(), BankAccountType.DEBIT);
+        BankAccount bankAccount2 = new BankAccount(3435, card2.getNumber(), card2.getCurrency(), BankAccountType.CREDIT);
 
 
-        Holder cardHolder1 = new Holder(address1, 7777888, "Avet Harutyunyan", 88899998 , cards , bankAccount1);
+        Holder cardHolder1 = new Holder(address1, 7777888, "Avet Harutyunyan", 88899998, cards, bankAccount1);
         System.out.println(cardHolder1);
         CardTransaction cardTransaction = new CardTransaction();
 
-        cardTransaction.deposit(card1,4500);
+        cardTransaction.deposit(card1, 4500);
 
-        cardTransaction.withDraw(card1,4000);
+        cardTransaction.withDraw(card1, 4000);
 
-        cardTransaction.transfer( card1,  card2, 450);
+        cardTransaction.transfer(card1, card2, 3000);
 
         System.out.println(cardTransaction.cardLimit(cards));
 
-        BankAccount acc1 = new BankAccount(1000, "ACC123", Currency.USD);
-        BankAccount acc2 = new BankAccount(500, "ACC456", Currency.USD);
+        BankAccount acc1 = new BankAccount(1000, "ACC123", Currency.USD, BankAccountType.DEBIT);
+        BankAccount acc2 = new BankAccount(500, "ACC456", Currency.USD, BankAccountType.CREDIT);
 
         BankAccountTransaction transaction = new BankAccountTransaction();
 
-        transaction.deposit(440 , acc1);
-        transaction.withdraw(100 , acc1);
-        transaction.transfer(300, acc2 , acc1);
+        transaction.deposit(440, acc1);
+        transaction.withdraw(100, acc1);
+        transaction.transfer(300, acc2, acc1);
 
         System.out.println("acc1:\n" + acc1);
         System.out.println("acc2:\n" + acc2);
+        
     }
 
 }

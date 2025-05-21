@@ -7,7 +7,7 @@ import banking_system.models.CardAccount;
 
 import java.util.List;
 
-public class CardTransaction extends Transaction  {
+public class CardTransaction implements Transaction  {
     @Override
     public void deposit(CardAccount card, int amount) {
         if (card.getStatus() == CardStatus.CLOSED || card.getStatus() == CardStatus.BLOCKED || amount < 0) {

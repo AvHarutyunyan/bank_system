@@ -5,43 +5,16 @@ import banking_system.enums.Currency;
 
 import java.util.List;
 
-public class BankAccount  {
-    private double balance;
-    private String number;
-    private Currency currency;
+public class BankAccount extends CommonFilds {
     private BankAccountType AccountType;
 
-
     public BankAccount(double balance, String number, Currency currency, BankAccountType accountType) {
-        this.balance = balance;
-        this.number = number;
-        this.currency = currency;
+        this.setBalance(balance);
+        this.setNumber(number);
+        this.setCurrency(currency);
         AccountType = accountType;
     }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public Currency getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
-    }
 
     public BankAccountType getAccountType() {
         return AccountType;
@@ -54,8 +27,8 @@ public class BankAccount  {
     @Override
     public String toString() {
         return
-                " balance = " + balance + "\n" +
-                        " Number = " + number + "\n" +
-                        " currency  = " + currency + "\n";
+                " balance = " + getBalance() + "\n" +
+                        " Number = " + getNumber() + "\n" +
+                        " currency  = " + getCurrency() + "\n";
     }
 }

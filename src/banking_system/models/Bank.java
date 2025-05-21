@@ -1,11 +1,13 @@
 package banking_system.models;
 
+import java.util.List;
+
 public class Bank {
     private String name;
     private Address address;
-    private  Holder holders;
+    private List<Holder> holders;
 
-    public Bank(String name, Address address, Holder holders) {
+    public Bank(String name, Address address, List<Holder> holders) {
         this.name = name;
         this.address = address;
         this.holders = holders;
@@ -27,11 +29,11 @@ public class Bank {
         this.address = address;
     }
 
-    public Holder getHolders() {
+    public List<Holder> getHolders() {
         return holders;
     }
 
-    public void setHolders(Holder holders) {
+    public void setHolders(List<Holder> holders) {
         this.holders = holders;
     }
 }

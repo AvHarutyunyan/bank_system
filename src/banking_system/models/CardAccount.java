@@ -7,7 +7,7 @@ import banking_system.enums.Currency;
 import java.time.LocalDate;
 import java.util.List;
 
-public class CardAccount extends CommonFilds {
+public class CardAccount extends Account {
     private String cvv;
     private LocalDate expirationDate;
     private CardType type;

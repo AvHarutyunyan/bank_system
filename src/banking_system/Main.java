@@ -48,15 +48,6 @@ public class Main {
                 Currency.RUB
         );
 
-//        Card card4 = new Card(
-//                "8333 9445 2264 3224",
-//                "544",
-//                LocalDate.of(2011, Month.FEBRUARY, 3),
-//                CardType.MASTERCARD,
-//                CardStatus.BLOCKED,
-//                200000,
-//                Currency.RUB
-//        );
 
         List<CardAccount> cards = new ArrayList<>(List.of(card1, card2));
         for (CardAccount card : cards) {
@@ -84,9 +75,9 @@ public class Main {
 
         BankAccountTransaction transaction = new BankAccountTransaction();
 
-        transaction.deposit(440, acc1);
-        transaction.withdraw(100, acc1);
-        transaction.transfer(300, acc2, acc1);
+        transaction.deposit(acc1, 400.35);
+        transaction.withDraw(acc1, 345.07);
+        transaction.transfer(acc2, acc1, 300);
 
         System.out.println("acc1:\n" + acc1);
         System.out.println("acc2:\n" + acc2);

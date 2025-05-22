@@ -13,7 +13,7 @@ public class Holder {
     private BankAccount bankAccount;
     private CardTransaction cardTransaction;
 
-    public Holder(Address address, int holderId, String fullName , int passportNumber , List<CardAccount> cards , BankAccount bankAccount  ) {
+    public Holder(Address address, int holderId, String fullName, int passportNumber, List<CardAccount> cards, BankAccount bankAccount) {
         this.address = address;
         this.holderId = holderId;
         this.fullName = fullName;
@@ -21,6 +21,7 @@ public class Holder {
         this.bankAccount = bankAccount;
         this.passportNumber = passportNumber;
     }
+
     public int getPassportNumber() {
         return passportNumber;
     }
@@ -68,6 +69,7 @@ public class Holder {
     public void setBankAccount(BankAccount bankAccount) {
         this.bankAccount = bankAccount;
     }
+
     public CardTransaction getCardTransaction() {
         return cardTransaction;
     }
@@ -79,10 +81,10 @@ public class Holder {
     @Override
     public String toString() {
         return
-                 address + "\n"+
-                " holderid = " + holderId + "\t" +
-                ",fullName = " + fullName + "\t" +
-                ",passport Number = " + passportNumber + "\t" +
-                 bankAccount ;
+                address + "\n" +
+                        " holderid = " + holderId + "\t" +
+                        ",fullName = " + fullName + "\t" +
+                        ",passport Number = " + passportNumber + "\t" +
+                        bankAccount;
     }
 }

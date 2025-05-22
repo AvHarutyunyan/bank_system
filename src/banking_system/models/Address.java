@@ -7,7 +7,7 @@ public class Address {
     private String street;
     private int house;
 
-    public Address(String country, String region, String city, String street, int house){
+    public Address(String country, String region, String city, String street, int house) {
         this.country = country;
         this.region = region;
         this.city = city;
@@ -54,9 +54,10 @@ public class Address {
     public void setHouse(int house) {
         this.house = house;
     }
+
     @Override
     public String toString() {
-        return  " country = " + country + "\n"+
+        return " country = " + country + "\n" +
                 " region = " + region + "\n" +
                 " city = " + city + "\n" +
                 " street = " + street + "\n" +

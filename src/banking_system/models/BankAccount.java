@@ -5,7 +5,7 @@ import banking_system.enums.Currency;
 
 import java.util.List;
 
-public class BankAccount extends CommonFilds {
+public class BankAccount extends Account {
     private BankAccountType AccountType;
 
     public BankAccount(double balance, String number, Currency currency, BankAccountType accountType) {

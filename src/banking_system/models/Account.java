@@ -6,16 +6,7 @@ import banking_system.enums.Currency;
 public abstract class Account {
     private String number;
     private double balance;
-    private Currency currency;
-    private CardStatus status;
-
-    public CardStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(CardStatus status) {
-        this.status = status;
-    }
+    private Currency currency;;
 
     public Currency getCurrency() {
         return currency;

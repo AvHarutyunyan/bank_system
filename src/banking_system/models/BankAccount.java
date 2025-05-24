@@ -6,22 +6,22 @@ import banking_system.enums.Currency;
 import java.util.List;
 
 public class BankAccount extends Account {
-    private BankAccountType AccountType;
+    private BankAccountType accountType;
 
     public BankAccount(double balance, String number, Currency currency, BankAccountType accountType) {
         this.setBalance(balance);
         this.setNumber(number);
         this.setCurrency(currency);
-        AccountType = accountType;
+        this.accountType = accountType;
     }
 
 
     public BankAccountType getAccountType() {
-        return AccountType;
+        return accountType;
     }
 
     public void setAccountType(BankAccountType accountType) {
-        AccountType = accountType;
+        this.accountType = accountType;
     }
 
     @Override

@@ -2,6 +2,7 @@ package banking_system.operations;
 
 import banking_system.exceptions.BankTransactionException;
 import banking_system.models.Account;
+import banking_system.models.BankAccount;
 
 public class BankAccountTransaction implements Transaction {
 

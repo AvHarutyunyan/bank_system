@@ -11,41 +11,45 @@ import java.util.List;
 public class CardTransaction implements Transaction {
 
     @Override
-    public void deposit(Account card, double amount) {
-        if (card.getStatus() == CardStatus.CLOSED || card.getStatus() == CardStatus.BLOCKED || amount < 0) {
+    public void deposit(Account account, double amount) {
+        CardAccount c1 = (CardAccount) account;
+        if (c1.getStatus() == CardStatus.CLOSED || c1.getStatus() == CardStatus.BLOCKED || amount < 0) {
             throw new InsufficientFoundsException("Deposit failed");
         }
 
-        card.setBalance(card.getBalance() + amount);
-        System.out.println("Deposited: " + amount + " to card " + card.getNumber()
-                + ". New balance: " + card.getBalance() + "\n");
+        c1.setBalance(c1.getBalance() + amount);
+        System.out.println("Deposited: " + amount + " to card " + c1.getNumber()
+                + ". New balance: " + c1.getBalance() + "\n");
     }
 
     @Override
-    public void withDraw(Account card, double takeMoney) {
-        if (takeMoney > card.getBalance() || card.getStatus() == CardStatus.CLOSED || card.getStatus() == CardStatus.BLOCKED) {
+    public void withDraw(Account account, double takeMoney) {
+        CardAccount c1 = (CardAccount) account;
+        if (takeMoney > c1.getBalance() || c1.getStatus() == CardStatus.CLOSED || c1.getStatus() == CardStatus.BLOCKED) {
             throw new IllegalArgumentException("WithDraw failed");
         }
-        card.setBalance(card.getBalance() - takeMoney);
-        System.out.println("WithDrawed: " + takeMoney + " in card " + card.getNumber() + ". New balance: " + card.getBalance() + "\n");
+        c1.setBalance(c1.getBalance() - takeMoney);
+        System.out.println("WithDrawed: " + takeMoney + " in card " + c1.getNumber() + ". New balance: " + c1.getBalance() + "\n");
     }
 
     @Override
-    public void transfer(Account senderCard, Account receiverCard, double amount) {
-        if (senderCard.getStatus() == CardStatus.CLOSED || senderCard.getStatus() == CardStatus.BLOCKED) {
+    public void transfer(Account senderAccount, Account receiverAccount, double amount) {
+        CardAccount c1 = (CardAccount) senderAccount;
+        CardAccount c2 = (CardAccount) receiverAccount;
+        if (c1.getStatus() == CardStatus.CLOSED || c1.getStatus() == CardStatus.BLOCKED) {
             throw new IllegalArgumentException("Sender card is not active.");
         }
 
-        if (amount > senderCard.getBalance()) {
+        if (amount > c1.getBalance()) {
             throw new IllegalArgumentException("Insufficient funds in sender account.");
         }
 
-        senderCard.setBalance(senderCard.getBalance() - amount);
-        receiverCard.setBalance(receiverCard.getBalance() + amount);
+        c1.setBalance(c1.getBalance() - amount);
+       c2.setBalance(c2.getBalance() + amount);
 
         System.out.println("Transferred: " + amount +
-                " from card " + senderCard.getBalance() +
-                " to card " + receiverCard.getBalance());
+                " from card " + c1.getBalance() +
+                " to card " + c2.getBalance());
     }
 
 

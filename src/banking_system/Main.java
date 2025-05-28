@@ -1,22 +1,22 @@
 package banking_system;
 
-import banking_system.enums.BankAccountType;
-import banking_system.models.*;
-import banking_system.enums.CardStatus;
-import banking_system.enums.CardType;
+import banking_system.enums.*;
 import banking_system.enums.Currency;
+import banking_system.models.*;
+import banking_system.operations.AppointmentManager;
 import banking_system.operations.BankAccountTransaction;
 import banking_system.operations.CardTransaction;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
+
         Address address1 = new Address("Armenia", "Armavair", "Armavair", "baghramyan", 15);
         CardAccount card1 = new CardAccount(
                 "4567 1346 6754 1345",
@@ -71,6 +71,7 @@ public class Main {
         System.out.println(cardTransaction.cardLimit(cards));
 
         BankAccount acc1 = new BankAccount(1000, "ACC123", Currency.USD, BankAccountType.DEBIT);
+
         BankAccount acc2 = new BankAccount(500, "ACC456", Currency.USD, BankAccountType.CREDIT);
 
         BankAccountTransaction transaction = new BankAccountTransaction();
@@ -82,6 +83,20 @@ public class Main {
         System.out.println("acc1:\n" + acc1);
         System.out.println("acc2:\n" + acc2);
 
+
+        Appointment appointmentHolder = new Appointment("HOLDER", null, null);
+
+        AppointmentManager manager = new AppointmentManager();
+
+        manager.scheduleAppointment(appointmentHolder, new Appointment("Anna", LocalTime.of(10, 0), ServiceType.ACCOUNT_OPENING));
+        manager.scheduleAppointment(appointmentHolder, new Appointment("Karen", LocalTime.of(9, 30), ServiceType.LOAN_CONSULTATION));
+        manager.scheduleAppointment(appointmentHolder, new Appointment("Lilit", LocalTime.of(11, 0), ServiceType.CARD_ISSUE));
+
+        System.out.println("All appointments:");
+        manager.viewAppointments(appointmentHolder);
+
+        System.out.println("\nNext appointment:");
+        manager.getNextAppointment(appointmentHolder);
     }
 
 }

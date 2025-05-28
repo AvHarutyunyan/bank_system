@@ -7,37 +7,41 @@ import banking_system.models.BankAccount;
 public class BankAccountTransaction implements Transaction {
 
     @Override
-    public void deposit(Account bankAccount, double amount) {
+    public void deposit(Account account, double amount) {
+        BankAccount acc = (BankAccount) account;
         if (amount <= 0) {
             throw new BankTransactionException("Deposit amount must be positive.");
         }
-        double newBalance = bankAccount.getBalance() + amount;
-        bankAccount.setBalance(newBalance);
-        System.out.println("Deposited: " + amount + " BankAccount Balance " + bankAccount.getBalance());
+        double newBalance = acc.getBalance() + amount;
+        acc.setBalance(newBalance);
+        System.out.println("Deposited: " + amount + " BankAccount Balance " + acc.getBalance());
     }
 
     @Override
-    public void withDraw(Account bankAccount, double amount) {
+    public void withDraw(Account account, double amount) {
+        BankAccount acc = (BankAccount) account;
         if (amount <= 0) {
             throw new BankTransactionException("Withdraw amount must be positive.");
         }
-        if (amount > bankAccount.getBalance()) {
+        if (amount > acc.getBalance()) {
             throw new BankTransactionException("Insufficient funds.");
         }
-        double newBalance = bankAccount.getBalance() - amount;
-        bankAccount.setBalance(newBalance);
-        System.out.println("Withdrawn: " + amount + " BankAccount Balance " + bankAccount.getBalance());
+        double newBalance = acc.getBalance() - amount;
+        acc.setBalance(newBalance);
+        System.out.println("Withdrawn: " + amount + " BankAccount Balance " + acc.getBalance());
     }
 
     @Override
-    public void transfer(Account bankAccount, Account toAccount, double amount) {
+    public void transfer(Account account, Account toAccount, double amount) {
+        BankAccount acc1 = (BankAccount) account;
+        BankAccount acc2 = (BankAccount) toAccount;
         if (amount <= 0) {
             throw new BankTransactionException("Transfer amount must be positive.");
         }
-        if (amount > bankAccount.getBalance()) {
+        if (amount > acc1.getBalance()) {
             throw new BankTransactionException("Insufficient funds for transfer.");
         }
-        if (!bankAccount.getCurrency().equals(toAccount.getCurrency())) {
+        if (!acc1.getCurrency().equals(toAccount.getCurrency())) {
             throw new BankTransactionException("Currency mismatch. Cannot transfer.");
         }
 

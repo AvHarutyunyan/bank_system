@@ -12,7 +12,6 @@ public class CardAccount extends Account {
     private LocalDate expirationDate;
     private CardType type;
     private CardStatus status;
-    private List<banking_system.models.CardAccount> cards;
 
     public CardAccount(String number, String cvv, LocalDate expirationDate, CardType type, CardStatus status, double balance, Currency currency) {
         this.setNumber(number);
@@ -22,10 +21,6 @@ public class CardAccount extends Account {
         this.status = status;
         this.setBalance(balance);
         this.setCurrency(currency);
-    }
-
-    public List<banking_system.models.CardAccount> getCards() {
-        return cards;
     }
 
     public String getCvv() {
